@@ -1,3 +1,4 @@
+var score_leftHand=0;
 var leftHandX=0;
 var leftHandY=0;
 var rightHandX=0;
@@ -16,6 +17,8 @@ video=createCapture(VIDEO);
 video.hide();
 poseNet=ml5.poseNet(video, modelLoaded);
 poseNet.on("pose",gotResults);
+score_leftHand= results[0].pose.keypoints[9].score;
+    console.log("score of left hand = "+score_leftHand);
 }
 function modelLoaded(){
     console.log("model is started");
@@ -34,12 +37,20 @@ if(results.length>0){
 function draw(){
 image(video, 0, 0, 600, 500);
 
+stroke("#FF0000");
+fill("#FF0000");
+
+Peter_pan.isPlaying();
+if(score_leftHand>0.2){
+    circle(leftHandX, leftHandY, 20);
+    Harry_potter.stop();
+    if(Peter_pan==false){
+        Peter_pan.play();
+        document.getElementById("song").innerHTML="Song - Peter Pan Song";
+    }
 }
-function play(){
-    audio.play();
-    audio.setVolume(1);
-    audio.rate(1);
 }
+
 function stop(){
     audio.stop();
 }
