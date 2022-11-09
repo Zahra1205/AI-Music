@@ -3,9 +3,11 @@ var leftHandY=0;
 var rightHandX=0;
 var rightHandY=0;
 
-var audio="";
+var Harry_potter="";
+var Peter_pan="";
 function preload(){
-audio= loadSound("music.mp3");
+Harry_potter= loadSound("music.mp3");
+Peter_pan= loadSound("music2.mp3");
 }
 function setup(){
 canvas=createCanvas(600, 500);
