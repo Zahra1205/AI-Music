@@ -43,22 +43,21 @@ image(video, 0, 0, 600, 500);
 
 stroke("#FF0000");
 fill("#FF0000");
-Harry_potter.isPlaying();
-song.isPlaying();
+var song_1 = Harry_potter.isPlaying();
 if(score_rightHand> 0.2){
     circle(rightHandX, rightHandY, 20);
     Peter_pan.stop();
-    if(Harry_potter==false){
+    if(song_1==false){
         Harry_potter.play();
         document.getElementById("song").innerHTML="Song - Harry Potter Theme Song";
     }
 }
-Peter_pan.isPlaying();
-song.isPlaying();
+var song_2 = Peter_pan.isPlaying();
+
 if(score_leftHand>0.2){
     circle(leftHandX, leftHandY, 20);
     Harry_potter.stop();
-    if(Peter_pan==false){
+    if(song_2 ==false){
         Peter_pan.play();
         document.getElementById("song").innerHTML="Song - Peter Pan Song";
     }
